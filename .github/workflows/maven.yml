@@ -20,7 +20,21 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
+        
     - name: Gerando Arquivo JAR
       run: mvn -B package --file pom.xml
+      
     - name: Listando conteudo gerado
       run: ls -laR
+      
+    - name: Upload para VM do Isidro
+      uses: appleboy/scp-action@master
+      with:
+         host: cloud.professorisidro.com.br
+         port: 22
+         username: root
+         password: ${{ secrets.PASSWORD }}
+         source: "./target/*.jar"
+         target: "/root"
+         
+       
