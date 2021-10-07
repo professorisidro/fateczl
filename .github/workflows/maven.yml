@@ -36,5 +36,14 @@ jobs:
          password: ${{ secrets.PASSWORD }}
          source: "./target/*.jar"
          target: "/root"
-         
+    
+    - name: Executando Script de Deploy na VM Remota
+      uses: appleboy/ssh-action@master
+      with: 
+         host: cloud.professorisidro.com.br
+         port: 22
+         username: root
+         password: ${{ secrets.PASSWORD }}
+         target: /root/deployfateczl.sh
+            
        
