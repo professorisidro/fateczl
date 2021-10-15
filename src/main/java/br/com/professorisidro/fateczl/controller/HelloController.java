@@ -10,7 +10,7 @@ public class HelloController {
 	
 	@GetMapping("/")
 	public String sayHello() {
-		return "Bem vindos ao exemplo do CI/CD na Fatec ZL - By Professor Isidro";
+		return "Bem vindos ao exemplo do CI/CD para a galera daora";
 	}
 
 }
